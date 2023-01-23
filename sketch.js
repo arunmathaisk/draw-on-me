@@ -1,3 +1,4 @@
+
 const OLED_WIDTH = 128;
 const OLED_HEIGHT = 64;
 const SCALE_FACTOR = 6;
@@ -103,12 +104,15 @@ function setup() {
   const cnv = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   cnv.parent('oled_scrn');
   // var x = (windowWidth - width) / 2;
-  // var y = (windowHeight - height) / 2;
-  // cnv.position(x, y);
+   //var y = (windowHeight - height) / 2;
+   //cnv.position(x, y);
   generate_pixels();
 }
 
-function draw() {
+function draw(){
   background(0);
   draw_pixels();
 }
+
+
+

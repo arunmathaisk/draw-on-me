@@ -2,8 +2,12 @@
 
 <head>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
-
+  <script src="lib.js"></script>
+  <script src="p5.js"></script>
+  <script src="bmp.js"></script>
+  <script src="fs"></script>
 </head>
+
 
 <body>
   <h1>
@@ -12,18 +16,30 @@
     </center>
   </h1>
   <hr>
+  <script src="sketch.js"></script>
   <p>
     Instructions :<br>
     -> MousePress(left) or MouseDragPressed(left) to draw pixels. <br>
     -> Press 'A' and point mouse over pixel to clear. <br>
     -> Right click on Oled Screen(Canvas)to save or copy as Image. <br>
   </p>
+
   <hr>
   <div id="oled_scrn" align="center"></div>
-  <script src="sketch.js"></script>
+  
   <hr>
   <button type="button" id="save">Save</button>
+<script>
+  document.getElementById("save").addEventListener("click",function(){
+  CanvasToBMP.toDataURL(canvas, function(uri) {
+    const link = document.createElement("a");
+  link.href = uri;
+  link.download = "filename.bmp";
+  link.click();
+  });
 
+  })
+</script>
 </body>
 
 </html>
